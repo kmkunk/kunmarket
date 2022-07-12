@@ -4,6 +4,7 @@ import com.kmkunk.kunmarket.common.entity.Address;
 import com.kmkunk.kunmarket.common.entity.Gender;
 import com.kmkunk.kunmarket.users.User;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Getter
+@Setter
 public class UserRequestDto {
 
     @NotBlank(message = "이메일을 입력해주세요.")

@@ -6,6 +6,7 @@ import com.sun.jdi.request.DuplicateRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,11 +14,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public void signUp(UserRequestDto userRequestDto) {
         //중복확인 및 밸리데이션 해야함
-        //비멀번호 암호화 해야함
         if (duplicateCheckEmail(userRequestDto.getEmail())) {
+            userRequestDto.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
             userRepository.save(userRequestDto.toEntity());
         }
     }
