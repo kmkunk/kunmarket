@@ -5,18 +5,19 @@ spring:
     password: kmkunk
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-    jpa:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
       hibernate:
-        ddl-auto: create
-      properties:
-        show_sql: true
+#        show_sql: true
         format_sql: true
 
-    data:
-      web:
-        pageable:
-          default-page-size: 10 # 기본 페이지 사이즈
-          max-page-size: 1000 # 최대 페이지 사이즈
+  data:
+    web:
+      pageable:
+        default-page-size: 10 # 기본 페이지 사이즈
+        max-page-size: 1000 # 최대 페이지 사이즈
 
 logging:
   level:
