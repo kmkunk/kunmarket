@@ -3,12 +3,15 @@ package com.kmkunk.kunmarket.users;
 import com.kmkunk.kunmarket.common.entity.Address;
 import com.kmkunk.kunmarket.common.entity.BaseTimeEntity;
 import com.kmkunk.kunmarket.common.entity.Gender;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User extends BaseTimeEntity {
 
     @Id
@@ -25,4 +28,14 @@ public class User extends BaseTimeEntity {
 
     @Embedded
     private Address address;
+
+    @Builder
+    public User(String email, String password, String name, Gender gender, String birthdate, Address address) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.birthdate = birthdate;
+        this.address = address;
+    }
 }
