@@ -4,7 +4,6 @@ import com.kmkunk.kunmarket.common.entity.Address;
 import com.kmkunk.kunmarket.common.entity.BaseTimeEntity;
 import com.kmkunk.kunmarket.common.entity.Gender;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +15,7 @@ public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
     private String email;
     private String password;
     private String name;
