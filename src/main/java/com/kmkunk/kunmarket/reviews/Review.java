@@ -25,5 +25,5 @@ public class Review extends BaseTimeEntity {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    //편의 메서드 추가해야됨
+    //연관관계 편의 메서드 추가해야됨
 }
