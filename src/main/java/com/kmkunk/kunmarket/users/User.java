@@ -3,11 +3,14 @@ package com.kmkunk.kunmarket.users;
 import com.kmkunk.kunmarket.common.entity.Address;
 import com.kmkunk.kunmarket.common.entity.BaseTimeEntity;
 import com.kmkunk.kunmarket.common.entity.Gender;
+import com.kmkunk.kunmarket.reviews.Review;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -27,6 +30,9 @@ public class User extends BaseTimeEntity {
 
     @Embedded
     private Address address;
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews = new ArrayList<>();
 
     @Builder
     public User(String email, String password, String name, Gender gender, String birthdate, Address address) {
