@@ -26,4 +26,5 @@ public class Review extends BaseTimeEntity {
     private Product product;
 
     //연관관계 편의 메서드 추가해야됨
+    //연관관계 편의 메서드 추가해야됨
 }
